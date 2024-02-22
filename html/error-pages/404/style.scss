@@ -32,6 +32,8 @@ main {
 #error-pages-404-img {
     width: var(--content-width);
     max-width: 15em; 
+    box-shadow: none;
+    background-color: transparent;
 }
 
 #error-pages-404-h1 {
@@ -48,7 +50,15 @@ main {
     margin-top: 3em;
 }
 
-#error-pages-404-contact-me-button {
+#error-pages-404-a {
+    width: fit-content;    
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 3em;
-    border: none !important;
+}
+
+#error-pages-404-contact-me-button {
+    margin: 0;
+    border-color: var(--dark-mode-title-color);
 }

@@ -33,6 +33,8 @@ main {
 #error-pages-403-img {
     width: var(--content-width);
     max-width: 15em; 
+    box-shadow: none;
+    background-color: transparent;
 }
 
 #error-pages-403-h1 {
@@ -49,7 +51,15 @@ main {
     margin-top: 3em;
 }
 
-#error-pages-403-contact-me-button {
+#error-pages-403-a {
+    width: fit-content;    
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 3em;
-    border: none !important;
+}
+
+#error-pages-403-contact-me-button {
+    margin: 0;
+    border: var(--dark-mode-title-color);
 }

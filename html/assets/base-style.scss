@@ -1,0 +1,891 @@
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ VARIABLES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+
+:root { // Store them in the root
+    /* default width */
+        --min-content-width: 350px;
+        --content-width: 80%;
+        --max-content-width: 60em;
+        --line-after-title-width: 50px;
+    /* borders */
+        --border-radius: 10px;
+        --border-width: 1px;
+    /* Margins */
+        --default-top-margin: calc(2 * var(--text-font-size));
+        --default-left-margin: auto;
+        --default-right-margin: auto;
+    /* text */
+    /* list styles */
+        --list-styles: none;
+} 
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ VARIABLES : COLOR ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+:root {
+    --light-mode-accent-color: #A155B5;
+    --light-mode-sec-accent-color: #A155B5;
+    --light-mode-body-background-color: #fcf7fe;
+    --light-mode-main-background-color: #FBF8FC;
+    --light-mode-layer-0-background-color: #F3F0F6;
+    --light-mode-layer-1-background-color: #e8e6ed;
+    --light-mode-layer-2-background-color: #D1D1DB;
+    --light-mode-border-color: #707070;
+    --light-mode-title-color: #03030e;
+    --light-mode-text-color: #707070;
+    --light-mode-shadow-color: #343C3F;
+    // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ //
+    --dark-mode-accent-color: #C979DD;
+    --dark-mode-sec-accent-color: #C979DD;
+    --dark-mode-body-background-color: #0e1112;
+    --dark-mode-main-background-color: #14181B;
+    --dark-mode-layer-0-background-color: #1D2226;
+    --dark-mode-layer-1-background-color: #343C3F;
+    --dark-mode-layer-2-background-color: #4D585C;
+    --dark-mode-border-color: #909090;
+    --dark-mode-title-color: #fcf7fe;
+    --dark-mode-text-color: #909090;
+    --dark-mode-shadow-color: #909090;
+}
+
+:root { //~ DEFAULT IS DARK MODE, if the browser does not support the `prefers-color-scheme` media query.
+    --accent-color: var(--dark-mode-accent-color);
+    --sec-accent-color: var(--dark-mode-sec-accent-color);
+    --body-background-color: var(--dark-mode-body-background-color);
+    --main-background-color: var(--dark-mode-main-background-color);
+    --layer-0-background-color: var(--dark-mode-layer-0-background-color);
+    --layer-1-background-color: var(--dark-mode-layer-1-background-color);
+    --layer-2-background-color: var(--dark-mode-layer-2-background-color);
+    --border-color: var(--dark-mode-border-color);
+    --title-color: var(--dark-mode-title-color);
+    --text-color: var(--dark-mode-text-color);
+    --shadow-color: var(--dark-mode-shadow-color);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --accent-color: var(--light-mode-accent-color);
+        --sec-accent-color: var(--light-mode-sec-accent-color);
+        --body-background-color: var(--light-mode-body-background-color);
+        --main-background-color: var(--light-mode-main-background-color);
+        --layer-0-background-color: var(--light-mode-layer-0-background-color);
+        --layer-1-background-color: var(--light-mode-layer-1-background-color);
+        --layer-2-background-color: var(--light-mode-layer-2-background-color);
+        --border-color: var(--light-mode-border-color);
+        --title-color: var(--light-mode-title-color);
+        --text-color: var(--light-mode-text-color);
+        --shadow-color: var(--light-mode-shadow-color);
+    }
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --accent-color: var(--dark-mode-accent-color);
+        --sec-accent-color: var(--dark-mode-sec-accent-color);
+        --body-background-color: var(--dark-mode-body-background-color);
+        --main-background-color: var(--dark-mode-main-background-color);
+        --layer-0-background-color: var(--dark-mode-layer-0-background-color);
+        --layer-1-background-color: var(--dark-mode-layer-1-background-color);
+        --layer-2-background-color: var(--dark-mode-layer-2-background-color);
+        --border-color: var(--dark-mode-border-color);
+        --title-color: var(--dark-mode-title-color);
+        --text-color: var(--dark-mode-text-color);
+        --shadow-color: var(--dark-mode-shadow-color);
+    }
+}
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+//++++++++++++++++++++++++++++++++++++++++++++++++++ CUSTOM CLASSES +++++++++++++++++++++++++++++++++++++++++++++++++//
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+//! Turns out, you can only play one animation on a single object at a time. Make sure to take that into account.
+
+.RGB-background {
+    background-color: red;
+    animation: RGB-background-animation 6s infinite normal linear; 
+}
+@keyframes RGB-background-animation {
+    0%, 100% {
+        background-color: rgb(255, 0, 0);
+    } 
+    33% {
+        background-color: rgb(0, 255, 0);
+    } 
+    66% {
+        background-color: rgb(0, 0, 255);
+    } 
+}
+
+.RGB-text-color {
+    animation: RGB-text-color-animation 6s infinite reverse linear; 
+}
+@keyframes RGB-text-color-animation {
+    0%, 100% {
+        color: rgb(255, 0, 0);
+    } 
+    33% {
+        color: rgb(0, 255, 0);
+    } 
+    66% {
+        color: rgb(0, 0, 255);
+    } 
+}
+
+.RGB-shadow {
+    animation: RGB-shadow-animation 6s infinite reverse linear; 
+}
+@keyframes RGB-shadow-animation {
+    0%, 100% {
+        box-shadow: 
+            var(--shadow-offset-x)
+            var(--shadow-offset-y)
+            var(--shadow-blur-radius)
+            var(--shadow-spread-radius)
+            rgb(255, 0, 0);
+    } 
+    33% {
+        box-shadow: 
+            var(--shadow-offset-x)
+            var(--shadow-offset-y)
+            var(--shadow-blur-radius)
+            var(--shadow-spread-radius)
+            rgb(0, 255, 0);
+    } 
+    66% {
+        box-shadow: 
+            var(--shadow-offset-x)
+            var(--shadow-offset-y)
+            var(--shadow-blur-radius)
+            var(--shadow-spread-radius)
+            rgb(0, 0, 255);
+    } 
+}
+
+.RGB-all-the-things {
+    animation: RGB-all-the-things-animation 6s infinite reverse linear; 
+}
+@keyframes RGB-all-the-things-animation {
+    0%, 100% {
+        background-color: rgb(122, 122, 0);
+        color: rgb(255, 0, 0);
+    } 
+    33% {
+        background-color: rgb(0, 122, 122);
+        color: rgb(0, 255, 0);
+    } 
+    66% {
+        background-color: rgb(122, 0, 122);
+        color: rgb(0, 0, 255);
+    } 
+}
+
+.animated-shadow {
+    animation: shadowAnimation 4s infinite normal linear;
+}
+@keyframes shadowAnimation {
+    0%, 100% {
+        box-shadow: 
+            var(--shadow-offset-x)
+            var(--shadow-offset-y)
+            var(--shadow-blur-radius)
+            calc(1 * var(--shadow-spread-radius))
+            var(--shadow-color);
+    } 25% {
+        box-shadow: 
+            var(--shadow-offset-x)
+            var(--shadow-offset-y)
+            var(--shadow-blur-radius)
+            calc(2 * var(--shadow-spread-radius))
+            var(--shadow-color);
+    } 50% {
+        box-shadow: 
+            var(--shadow-offset-x)
+            var(--shadow-offset-y)
+            var(--shadow-blur-radius)
+            calc(1 * var(--shadow-spread-radius))
+            var(--shadow-color);
+    } 75% {
+        box-shadow: 
+            var(--shadow-offset-x)
+            var(--shadow-offset-y)
+            var(--shadow-blur-radius)
+            calc(0* var(--shadow-spread-radius))
+            var(--shadow-color);
+    }
+}   
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ STATIC CSS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+.follows-content-width-rules {
+    @extend .horizontally-centered;
+
+    width: var(--content-width);
+    max-width: var(--max-content-width);
+}
+
+.no-line::after {content: none !important;}
+
+.full-screen { height: 100vh; width: 100vw; }
+
+.follower { position: fixed; } 
+.top-follower { @extend .follower; top: 0; }
+.left-follower { @extend .follower; left: 0; } 
+.right-follower { @extend .follower; right: 0; } 
+.bottom-follower { @extend .follower; bottom: 0; }
+
+.text-align-right { text-align: right; }
+.text-align-left { text-align: left; }
+.text-align-center { text-align: center; }
+.text-align-justify { text-align: justify; hyphens: auto;}
+
+
+.layer-0 { background-color: var(--layer-0-background-color); } 
+.layer-1 { background-color: var(--layer-1-background-color); }
+.layer-2 { background-color: var(--layer-2-background-color); }
+
+
+.hidden { display: none !important; }
+@media (prefers-color-scheme: light) { .dark-mode { display: none !important; } }
+@media (prefers-color-scheme: dark) { .light-mode { display: none !important; } }
+
+.not-scrollable { overflow: hidden; } 
+.not-resizable { resize: none; }
+
+.bold { font-weight: bold; } 
+
+.rounded { border-radius: var(--border-radius); }
+.bordered { border-width: var(--border-width); border-color: var(--border-color); border: solid; } 
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SHADOW ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+:root {
+        --shadow-offset-x: 0;
+        --shadow-offset-y: 0;
+        --shadow-blur-radius: 2em;
+        --shadow-spread-radius: -0.5em;
+} .shadow {
+    box-shadow: 
+        var(--shadow-offset-x) 
+        var(--shadow-offset-y)
+        var(--shadow-blur-radius)
+        var(--shadow-spread-radius)
+        var(--shadow-color);
+} 
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CENTERING ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+.horizontally-centered { margin-left: auto; margin-right: auto; }
+.vertically-centered { display: flex; justify-content: center; align-items: center; flex-direction: column; }
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BOX ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+.box {
+    @extend .shadow;
+    @extend .bordered;
+    @extend .rounded;
+    @extend .horizontally-centered;
+    @extend .not-scrollable;
+    @extend .layer-0;
+
+    min-width: auto;
+    width: var(--content-width);
+    max-width: max-content;
+    margin-top: var(--default-top-margin);
+    aspect-ratio: 1/1;
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BLACKOUT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+.blackout {
+    z-index: 1000000;
+    background-color: rgba($color: #FFFFFF, $alpha: 0.7);
+}
+@media (prefers-color-scheme: dark) {
+    .blackout {
+        background-color: rgba($color: #000000, $alpha: 0.7);
+    }
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ UNSELECTABLE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+.not-selectable {
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+  }
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+//++++++++++++++++++++++++++++++++++++++++++++ BASE HTML ELEMENTS STYLING +++++++++++++++++++++++++++++++++++++++++++//
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+* {
+    @extend .text-align-center;
+    @extend .not-selectable;
+
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    color: var(--text-color);
+    font-family: var(--text-font);
+    font-size: var(--text-font-size);
+    // Size : width, Height
+    // Spacing : Margin, Padding
+    margin: 0;
+    padding: 0;
+    // Rendering : Display, Position, 
+    display: block;
+    // Other
+    box-sizing: border-box;
+    accent-color: var(--accent-color);
+}
+
+// Hidding the Scrollbar
+* { overflow: -moz-scrollbars-none; -ms-overflow-style: none; scrollbar-width: none; }
+*::-webkit-scrollbar { display: none; }
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ HTML ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+html {
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    background-color: var(--body-background-color);
+    // Size : width, Height
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // Spacing : Margin, Padding
+    // margin: 0;
+    // padding: 0;
+    // display: block;
+    position: absolute;
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ HEAD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+head {
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    // Size : width, Height
+    // Spacing : Margin, Padding
+    // Rendering : Display, Position, 
+    display: none;
+    // Other
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BODY ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+body {
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    background-color: var(--body-background-color);
+    // Size : width, Height
+    width: 100%;
+    height: 100%;
+    // Spacing : Margin, Padding
+    margin: 0;
+    padding: 0;
+    // Rendering : Display, Position, 
+    display: block;
+    // Other
+}
+
+body > *:first-child, 
+body > *:first-child > *:first-child,
+body > *:first-child > *:first-child > *:first-child,
+body > *:first-child > *:first-child > *:first-child > *:first-child,
+body > *:first-child > *:first-child > *:first-child > *:first-child > *:first-child,
+body > *:first-child > *:first-child > *:first-child > *:first-child > *:first-child > *:first-child {margin-top: 0;}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ MAIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+:root {
+    --min-main-width: 350px;
+    --max-main-width: 1920px; $max-main-width: 1920px;
+} main {
+    @extend .shadow;
+
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    background-color: var(--main-background-color);
+    // Size : width, Height
+    min-width: var(--min-main-width);
+    width: 100%; // width: calc(100vw - 2 * var(--border-width));
+    max-width: var(--max-main-width);
+    // Spacing : Margin, Padding
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    // Rendering : Display, Position, 
+    display: block;
+    // Other
+    
+    // Removes the top margin for the first section in main so it has zero gap
+    section:first-of-type {
+        margin-top: 0;
+    }
+}
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SECTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+section {
+    //! sections must be the entire width
+    ////@extend .follows-content-width-rules;
+
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    // Size : width, Height
+    width: 100%;
+    // Spacing : Margin, Padding
+    margin-top: 10em;
+    margin-left: auto;
+    margin-right: auto
+    // Rendering : Display, Position, 
+    // Other
+}
+
+// Everything within a section must follow the content rules by default.
+section > * { @extend .follows-content-width-rules; }
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ H ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+:root {
+    --title-font-size-max: calc(3 * var(--text-font-size));
+    --title-font-size-scaler: calc(var(--text-font-size) / 4);
+    --title-font: 'Old Standard TT', serif;
+    --title-line-width: 50px;
+    --title-line-height: 2px; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @extend .follows-content-width-rules;
+    @extend .horizontally-centered;
+
+    font-family: var(--title-font);
+    color: var(--title-color);
+    margin-top: 2rem;
+} h1::after, h2::after, h3::after, h3::after, h4::after, h4::after, h5::after, h6::after {
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    background-color: var(--accent-color);
+    // Size : width, Height
+    width: var(--title-line-width);
+    height: var(--title-line-height);
+    // Spacing : Margin, Padding
+    margin-top: calc(var(--default-top-margin)/2);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: calc(var(--default-top-margin)/2);
+    // Rendering : Display, Position, 
+    display: block;
+    // Other
+    content: " ";
+}
+
+h1 { 
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    font-size: calc(var(--title-font-size-max) - 1 * var(--title-font-size-scaler)); 
+    // Size : width, Height
+    // Spacing : Margin, Padding
+    // Rendering : Display, Position, 
+    // Border : Radius, Width, Style
+    // Other
+    margin-top: calc(30px + (var(--default-top-margin) * 3) / 1);
+} h2 {
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    font-size: calc(var(--title-font-size-max) - 2 * var(--title-font-size-scaler)); 
+    // Size : width, Height
+    // Spacing : Margin, Padding
+    // Rendering : Display, Position, 
+    // Border : Radius, Width, Style
+    // Other
+    margin-top: calc(30px + (var(--default-top-margin) * 3) / 2);
+} h3 { 
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    font-size: calc(var(--title-font-size-max) - 3 * var(--title-font-size-scaler)); 
+    // Size : width, Height
+    // Spacing : Margin, Padding
+    // Rendering : Display, Position, 
+    // Border : Radius, Width, Style
+    // Other
+    margin-top: calc(30px + (var(--default-top-margin) * 3) / 3);
+} h4 {
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    font-size: calc(var(--title-font-size-max) - 4 * var(--title-font-size-scaler)); 
+    // Size : width, Height
+    // Spacing : Margin, Padding
+    // Rendering : Display, Position, 
+    // Border : Radius, Width, Style
+    // Other
+    margin-top: calc(30px + (var(--default-top-margin) * 3) / 4);
+} h5 { 
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    font-size: calc(var(--title-font-size-max) - 5 * var(--title-font-size-scaler)); 
+    // Size : width, Height
+    // Spacing : Margin, Padding
+    // Rendering : Display, Position, 
+    // Border : Radius, Width, Style
+    // Other
+    margin-top: calc(30px + (var(--default-top-margin) * 3) / 5);
+} h6 { 
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    font-size: calc(var(--title-font-size-max) - 6 * var(--title-font-size-scaler)); 
+    // Size : width, Height
+    // Spacing : Margin, Padding
+    // Rendering : Display, Position, 
+    // Border : Radius, Width, Style
+    // Other
+    margin-top: calc(30px + (var(--default-top-margin) * 3) / 6);
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ P ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+:root {
+    --text-font-size: 16px;
+    --text-font: 'Source Serif Pro', monospace;
+}
+
+p {
+    @extend .text-align-justify;
+
+    width: fit-content;
+}
+
+section > p, header > p, footer > p { 
+    @extend .follows-content-width-rules; 
+
+    margin-top: var(--text-font-size);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    width: fit-content;
+    max-width: min(var(--max-content-width), var(--content-width));
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ A ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+a {
+    color: var(--accent-color);
+    display: inline;
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ B ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+b {
+    // color: var(--accent-color);
+    display: inline;
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ I ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+i {
+    // color: var(--accent-color);
+    display: inline;
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ U ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+u {
+    // color: var(--accent-color);
+    display: inline;
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ EM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+em {
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    font-family: var(--title-font);
+    color: var(--accent-color);
+    font-weight: bold;
+    // Size : width, Height
+    // Spacing : Margin, Padding
+    // Rendering : Display, Position, 
+    display: inline;
+    // Border : Radius, Width, Style
+    // Other
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ IMG ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+img {
+    @extend .rounded;
+    @extend .horizontally-centered;
+    @extend .not-scrollable;
+    @extend .shadow;
+    @extend .layer-0;
+
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    // Size : width, Height
+    max-width: 15em;
+    // Spacing : Margin, Padding
+    margin-top: 2em;
+    margin-bottom: 2em;
+    // Rendering : Display, Position, 
+    // Border : Radius, Width, Style
+    // Other
+
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BUTTON ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+:root {
+    --button-width: 14.7em;
+    --button-height: 2.7em;
+}
+button {
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    color: var(--title-color);
+    background-color: var(--accent-color);
+    font-weight: bold;
+    // Size : width, Height
+    height: var(--button-height);
+    width: var(--button-width);
+    // Spacing : Margin, Padding
+    padding: 0;
+    // Rendering : Display, Position, 
+    display: block;
+    // Border : Radius, Width, Style
+    border-color: var(--title-color);
+    border-width: var(--border-width);
+    border-radius: var(--border-radius);
+    border-style: solid;
+    // Other
+    cursor: pointer;
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CAPTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+caption { // TODO: fix this elements style
+    padding: 8px;
+    caption-side: bottom;
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ TABLE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+table { // TODO: fix this Elements style
+    @extend .follows-content-width-rules;
+
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    // Size : width, Height
+    // Spacing : Margin, Padding
+    // Rendering : Display, Position, 
+    display: table;
+    // Border : Radius, Width, Style
+    border-collapse: collapse;
+    border: 2px solid rgb(100, 100, 100);
+    // Other
+    letter-spacing: 1px;
+    table-layout: auto;
+
+    tr {
+        @extend .layer-0;
+        
+        // Text : Color, Font-Family, Font-Size, Alignment, Background
+        // Size : width, Height
+        width: 100%;
+        // Spacing : Margin, Padding
+        // Rendering : Display, Position, 
+        // Border : Radius, Width, Style
+        // Other
+    }
+    
+    tr:nth-child(even) {
+        @extend .layer-1;
+    }
+    
+    td, th {
+        padding: 10px 10px;
+        display: table-cell;
+    }
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CODE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+code {
+    @extend .follows-content-width-rules;
+    @extend .layer-0;
+    @extend .text-align-left;
+    @extend .rounded;
+
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    font-family: monospace;
+    font-size: inherit;
+    line-height: 100%;
+    letter-spacing: -0.05em;
+    word-break: normal;   
+    // Size : width, Height
+    // Spacing : Margin, Padding
+    margin-top: calc(var(--default-top-margin)/3);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5em;
+    // Rendering : Display, Position, 
+    display: block;
+    // Border : Radius, Width, Style
+    // Other
+    overflow: auto;
+}
+
+pre {
+    @extend .follows-content-width-rules;
+    font-family: monospace;
+    line-height: 100%;
+    padding: 0.2em;
+    letter-spacing: -0.05em;
+    word-break: normal;   
+
+    code {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+pre, code { white-space: pre-line; }
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ HORIZONTAL RULE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+hr {
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    // Size : width, Height
+    max-width: var(--max-content-width);
+    height: 5px;
+    // Spacing : Margin, Padding
+    margin-top: calc(2/3 * var(--default-top-margin));
+    margin-right: auto;
+    margin-bottom: calc(2/3 * var(--default-top-margin));
+    margin-left: auto;
+    // Rendering : Display, Position, 
+    // Border : Radius, Width, Style
+    border: none;
+    border-top: 3px double var(--text-color);
+    // Other
+    overflow: visible;
+}
+  
+hr::after {
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    color: var(--text-color);
+    background-color: var(--main-background-color);
+    // Size : width, Height
+    width: fit-content;
+    height: auto;
+    // Spacing : Margin, Padding
+    margin-top: var(--text-font-size);
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 4px;
+    // Rendering : Display, Position, 
+    display: block;
+    top: -28px;
+    position: relative;
+    // Border : Radius, Width, Style
+    border-radius: 50%;
+    // Other
+    aspect-ratio: 1/1;
+    content: '§';
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ OBJECT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+object {
+    @extend .follows-content-width-rules;
+    @extend .horizontally-centered;
+    @extend .rounded;
+
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    color: var(--text-color);
+    background-color: var(--layer-0-background-color);
+    // Size : width, Height
+    width: var(--content-width);
+    // Spacing : Margin, Padding
+    // Rendering : Display, Position, 
+    // Border : Radius, Width, Style
+    // Other
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CANVAS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+canvas {
+    @extend .follows-content-width-rules;
+    @extend .horizontally-centered;
+    @extend .rounded;
+
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    color: var(--text-color);
+    background-color: var(--layer-0-background-color);
+    // Size : width, Height
+    width: var(--content-width);
+    // Spacing : Margin, Padding
+    margin-top: var(--default-top-margin);
+    // Rendering : Display, Position, 
+    // Border : Radius, Width, Style
+    border-radius: var(--border-radius)
+    // Other
+}
+
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ DETAILS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+details { // TODO Finish Styling the details & summary element
+    @extend .follows-content-width-rules;
+    @extend .horizontally-centered;
+    @extend .layer-0;
+    @extend .rounded;
+
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    // Size : width, Height
+    width: var(--content-width);
+    // Spacing : Margin, Padding
+    // Rendering : Display, Position, 
+    // Border : Radius, Width, Style
+    // Other
+    cursor: pointer;
+}
+
+details > summary {
+    list-style-type: '>';
+}
+
+details[open] > summary {
+    list-style-type: 'v';
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ FIGURE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+figure {
+    @extend .follows-content-width-rules;
+    @extend .horizontally-centered;
+    @extend .layer-0;
+    @extend .rounded;
+
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    // Size : width, Height
+    width: var(--content-width);
+    // Spacing : Margin, Padding
+    // Rendering : Display, Position, 
+    // Border : Radius, Width, Style
+    // Other
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BLOCK QUOTE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+blockquote {
+    @extend .follows-content-width-rules;
+    @extend .horizontally-centered;
+    @extend .layer-0;
+    @extend .rounded;
+
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    // Size : width, Height
+    width: var(--content-width);
+    // Spacing : Margin, Padding
+    padding: 0.5em;
+    // Rendering : Display, Position, 
+    // Border : Radius, Width, Style
+    // Other
+
+    p {
+        @extend .text-align-center;
+
+        // Text : Color, Font-Family, Font-Size, Alignment, Background
+        font-style: italic;
+        // Size : width, Height
+        width: 100%;
+        // Spacing : Margin, Padding
+        // Rendering : Display, Position, 
+        // Border : Radius, Width, Style
+        // Other
+    } p::before, p::after {
+        content: "\"";
+    }
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ STYLE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+style {
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    // Size : width, Height
+    // Spacing : Margin, Padding
+    // Rendering : Display, Position, 
+    display: none;
+    // Other
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SCRIPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+script {
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    // Size : width, Height
+    // Spacing : Margin, Padding
+    // Rendering : Display, Position, 
+    display: none;
+    // Other
+}
+
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    // Size : width, Height
+    // Spacing : Margin, Padding
+    // Rendering : Display, Position, 
+    // Border : Radius, Width, Style
+    // Other

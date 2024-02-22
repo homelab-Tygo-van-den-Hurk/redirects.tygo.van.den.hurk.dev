@@ -1,0 +1,87 @@
+@import url("/assets/base-style.css");
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 10vh;
+  min-height: 100vh;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+header {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+ul {
+  padding: 25px 0;
+  width: var(--content-width);
+  max-width: var(--max-content-width);
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust as needed */
+  grid-gap: 10px; /* Adjust gap between elements */
+}
+ul li {
+  color: var(--accent-color);
+  background-color: var(--layer-0-background-color);
+  border-color: var(--accent-color);
+  border-radius: var(--border-radius);
+  border-width: var(--border-width);
+  border-style: solid;
+  padding: 5px;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+ul li:hover {
+  color: var(--layer-0-background-color);
+  background-color: var(--accent-color);
+  border-color: var(--layer-0-background-color);
+}
+ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+footer {
+  height: -moz-max-content;
+  height: max-content;
+  padding: 2rem;
+  padding-bottom: 10vh;
+  width: 100%;
+}
+footer > * {
+  width: var(--content-width);
+  max-width: var(--max-content-width);
+}
+footer p {
+  margin-top: 0;
+  text-align: center;
+}
+footer p span {
+  display: inline-block;
+}
+
+@media screen and (max-width: 600px) {
+  footer p span.mid-dot {
+    visibility: hidden;
+  }
+  footer p span.own-line {
+    display: block;
+  }
+}
+@media screen and (max-width: 900px) {
+  footer p span.mid-dot-two {
+    visibility: hidden;
+  }
+  footer p span.own-line-two {
+    display: block;
+  }
+}
