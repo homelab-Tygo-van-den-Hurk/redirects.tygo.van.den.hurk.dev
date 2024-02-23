@@ -606,8 +606,10 @@ img {
     --button-height: 2.7em;
 }
 button {
+    @extend .shadow;
+    
     // Text : Color, Font-Family, Font-Size, Alignment, Background
-    color: var(--title-color);
+    color: var(--dark-mode-title-color);
     background-color: var(--accent-color);
     font-weight: bold;
     // Size : width, Height
