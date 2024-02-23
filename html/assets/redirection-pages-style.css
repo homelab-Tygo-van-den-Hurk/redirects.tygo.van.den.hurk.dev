@@ -16,24 +16,3 @@ main {
 h1#redirect-h1 {
   margin-top: 3rem;
 }
-
-/* Light mode icon */
-@media (prefers-color-scheme: light) {
-  /* Specify the path to the light mode icon */
-  /* For example */
-  link[rel=icon] {
-    /* Your light mode icon path */
-    /* Example: */
-    href: "/assets/images/icons/redirect/black.svg";
-  }
-}
-/* Dark mode icon */
-@media (prefers-color-scheme: dark) {
-  /* Specify the path to the dark mode icon */
-  /* For example */
-  link[rel=icon] {
-    /* Your dark mode icon path */
-    /* Example: */
-    href: "/assets/images/icons/redirect/white.svg";
-  }
-}
