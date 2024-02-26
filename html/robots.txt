@@ -1,0 +1,4 @@
+user-agent: *
+    Disallow: /private/
+    Disallow: /assets/
+    Sitemap: https://redirects.tygo.van.den.hurk.dev/assets/sitemap.xml
