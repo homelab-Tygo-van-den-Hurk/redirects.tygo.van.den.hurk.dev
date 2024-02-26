@@ -10,28 +10,24 @@ body {
   height: fit-content;
   background-color: var(--main-background-color) !important;
 }
-
-header, footer {
+body aside {
+  display: none;
+}
+body header, body footer {
   width: var(--content-width);
   max-width: var(--max-content-width);
   margin-left: auto;
   margin-right: auto;
 }
-
-header {
+body header {
   height: -moz-fit-content;
   height: fit-content;
 }
-header h1 {
-  max-width: none;
-  width: 100%;
+body header > * {
+  width: var(--content-width);
+  max-width: var(--max-content-width);
 }
-header p {
-  max-width: none;
-  width: 100%;
-}
-
-ul {
+body ul {
   padding: 25px 0;
   width: var(--content-width);
   max-width: var(--max-content-width);
@@ -41,7 +37,7 @@ ul {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust as needed */
   grid-gap: 10px; /* Adjust gap between elements */
 }
-ul li {
+body ul li {
   color: var(--accent-color);
   background-color: var(--layer-0-background-color);
   border-color: var(--accent-color);
@@ -52,12 +48,12 @@ ul li {
   height: -moz-fit-content;
   height: fit-content;
 }
-ul li:hover {
+body ul li:hover {
   color: var(--layer-0-background-color);
   background-color: var(--accent-color);
   border-color: var(--layer-0-background-color);
 }
-ul li a {
+body ul li a {
   display: block;
   width: 100%;
   height: 100%;
@@ -65,23 +61,22 @@ ul li a {
   text-decoration: none;
   text-transform: capitalize;
 }
-
-footer {
+body footer {
   height: -moz-max-content;
   height: max-content;
   padding: 2rem;
   padding-bottom: 10vh;
   width: 100%;
 }
-footer > * {
+body footer > * {
   width: var(--content-width);
   max-width: var(--max-content-width);
 }
-footer p {
+body footer p {
   margin-top: 0;
   text-align: center;
 }
-footer p span {
+body footer p span {
   display: inline-block;
 }
 
