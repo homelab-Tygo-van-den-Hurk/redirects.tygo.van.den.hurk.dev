@@ -5,37 +5,42 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding-top: 10vh;
     min-height: 100vh;
     height: fit-content;
     background-color: var(--main-background-color) !important;
 
     aside {
         display: none;
+        margin-left: auto;
+        margin-right: auto;
+        width: var(--content-width);
+        max-width: var(--max-content-width);
     }
 
-    header, footer { // follow content rules
+    header#header-section, footer { // follow content rules
         width: var(--content-width);
         max-width: var(--max-content-width);
         margin-left: auto; margin-right: auto;
     }
     
-    header {
-
-        & > * {
-            width: var(--content-width);
-            max-width: var(--max-content-width);
-        }
-
+    header#header-section {
         height: fit-content;
+
+        & > *{
+            width: 100% !important;
+            max-width: none;
+        }
     }
     
-    ul {
-        padding:25px 0;    
-        width: var(--content-width);
-        max-width: var(--max-content-width);
+    & > ul, table, pre {
         margin-left: auto;
         margin-right: auto;
+        width: var(--content-width);
+        max-width: var(--max-content-width);
+    }
+
+    ul, table#index-list {
+        padding:25px 0;    
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust as needed */
         grid-gap: 10px; /* Adjust gap between elements */

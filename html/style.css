@@ -4,7 +4,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-top: 10vh;
   min-height: 100vh;
   height: -moz-fit-content;
   height: fit-content;
@@ -12,32 +11,38 @@ body {
 }
 body aside {
   display: none;
+  margin-left: auto;
+  margin-right: auto;
+  width: var(--content-width);
+  max-width: var(--max-content-width);
 }
-body header, body footer {
+body header#header-section, body footer {
   width: var(--content-width);
   max-width: var(--max-content-width);
   margin-left: auto;
   margin-right: auto;
 }
-body header {
+body header#header-section {
   height: -moz-fit-content;
   height: fit-content;
 }
-body header > * {
+body header#header-section > * {
+  width: 100% !important;
+  max-width: none;
+}
+body > ul, body table, body pre {
+  margin-left: auto;
+  margin-right: auto;
   width: var(--content-width);
   max-width: var(--max-content-width);
 }
-body ul {
+body ul, body table#index-list {
   padding: 25px 0;
-  width: var(--content-width);
-  max-width: var(--max-content-width);
-  margin-left: auto;
-  margin-right: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust as needed */
   grid-gap: 10px; /* Adjust gap between elements */
 }
-body ul li {
+body ul li, body table#index-list li {
   color: var(--accent-color);
   background-color: var(--layer-0-background-color);
   border-color: var(--accent-color);
@@ -48,12 +53,12 @@ body ul li {
   height: -moz-fit-content;
   height: fit-content;
 }
-body ul li:hover {
+body ul li:hover, body table#index-list li:hover {
   color: var(--layer-0-background-color);
   background-color: var(--accent-color);
   border-color: var(--layer-0-background-color);
 }
-body ul li a {
+body ul li a, body table#index-list li a {
   display: block;
   width: 100%;
   height: 100%;
