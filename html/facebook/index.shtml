@@ -1,0 +1,5 @@
+<!--#include virtual="/assets/html/redirection-pages/head.html"-->
+<meta http-equiv="refresh" content="0; URL=https://facebook.com/profile.php?id=100011384536668"/>
+<!--#include virtual="/assets/html/redirection-pages/middle.html"-->
+<a id="redirect-a" href="https://facebook.com/profile.php?id=100011384536668">here</a>.
+<!--#include virtual="/assets/html/redirection-pages/tail.html"-->

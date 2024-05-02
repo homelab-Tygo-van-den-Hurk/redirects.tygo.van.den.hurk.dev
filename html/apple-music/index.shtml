@@ -1,0 +1,5 @@
+<!--#include virtual="/assets/html/redirection-pages/head.html"-->
+<meta http-equiv="refresh" content="0; URL=https://music.apple.com/profile/St_H/"/>
+<!--#include virtual="/assets/html/redirection-pages/middle.html"-->
+<a id="redirect-a" href="https://music.apple.com/profile/St_H/">here</a>.
+<!--#include virtual="/assets/html/redirection-pages/tail.html"-->

@@ -1,0 +1,5 @@
+<!--#include virtual="/assets/html/redirection-pages/head.html"-->
+<meta http-equiv="refresh" content="0; URL=https://steamcommunity.com/id/tygo-van-den-hurk/"/>
+<!--#include virtual="/assets/html/redirection-pages/middle.html"-->
+<a id="redirect-a" href="https://steamcommunity.com/id/tygo-van-den-hurk/">here</a>.
+<!--#include virtual="/assets/html/redirection-pages/tail.html"-->

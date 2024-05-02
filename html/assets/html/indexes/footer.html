@@ -1,0 +1,63 @@
+        <script>
+            console.log("ul");
+            const ul = document.getElementsByTagName("ul")[0];
+            ul.childNodes.forEach(li => {
+                
+                console.log("element: "+li.tagName);
+
+                if (li.nodeType !== Node.ELEMENT_NODE) return;
+                if (li.tagName.toLowerCase() !== "li") return;
+                
+                console.log("is li");
+
+                li.childNodes.forEach(a => {
+                    if (a.nodeType !== Node.ELEMENT_NODE) return;
+                    if (a.tagName.toLowerCase() !== "a") return;
+
+                    a.textContent = (a.textContent.replace("/", "").replace("-", " "));
+
+                    if (! a.textContent.toLowerCase().includes("parent")) return;
+                    a.textContent = "Go Back";
+                    li.id = "go-back-link";
+                });
+            });
+        </script>
+        <footer>
+            <p id="footer-copyright-paragraph">
+                <span id="footer-copyright-paragraph-add-time" class="own-line">
+                    Copyright &copy; est 2023
+                </span>
+                <span class="own-line">
+                    <span class="mid-dot">
+                        &middot;
+                    </span>
+                    Tygo&nbsp;van&nbsp;den&nbsp;Hurk
+                </span>
+                <span class="own-line-two">
+                    <span class="mid-dot-two">
+                        &middot;
+                    </span>
+                    All&nbsp;rights&nbsp;reserved
+                </span>
+            </p>
+            <script>
+
+                const middot = "&middot;";
+                const middotRegExp = new RegExp(`/[${middot}|·]/g`);
+
+                const zwj = "&zwj;"
+                const zwjRegExp = new RegExp(`/${zwj}/g`);
+
+                const copy_ = "&copy;"
+                const nbsp = "&nbsp;";
+                
+                const spanIP = "footer-copyright-paragraph-add-time";
+
+                const currentYear = new Date().getFullYear();
+                const span = document.getElementById(spanIP);
+                span.innerHTML = (`Copyright ${copy_} 2023-${currentYear}`);
+
+            </script> 
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,5 @@
+<!--#include virtual="/assets/html/redirection-pages/head.html"-->
+<meta http-equiv="refresh" content="0; URL=https://www.behance.net/6301702c"/>
+<!--#include virtual="/assets/html/redirection-pages/middle.html"-->
+<a id="redirect-a" href="https://www.behance.net/6301702c">here</a>.
+<!--#include virtual="/assets/html/redirection-pages/tail.html"-->

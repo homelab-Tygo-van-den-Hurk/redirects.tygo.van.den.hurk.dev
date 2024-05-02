@@ -1,0 +1,5 @@
+<!--#include virtual="/assets/html/redirection-pages/head.html"-->
+<meta http-equiv="refresh" content="0; URL=https://github.com/Tygo-van-den-Hurk-school"/>
+<!--#include virtual="/assets/html/redirection-pages/middle.html"-->
+<a id="redirect-a" href="https://github.com/Tygo-van-den-Hurk-school">here</a>.
+<!--#include virtual="/assets/html/redirection-pages/tail.html"-->
