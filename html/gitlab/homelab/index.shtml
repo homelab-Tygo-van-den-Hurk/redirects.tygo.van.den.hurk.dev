@@ -1,5 +1,5 @@
 <!--#include virtual="/assets/html/redirection-pages/head.html"-->
-<meta http-equiv="refresh" content="0; URL=https://gitlab.com/Tygo-van-den-Hurk-homelab"/>
+<meta http-equiv="refresh" content="0; URL=https://gitlab.com/homelab-Tygo-van-den-Hurk"/>
 <!--#include virtual="/assets/html/redirection-pages/middle.html"-->
-<a id="redirect-a" href="https://gitlab.com/Tygo-van-den-Hurk-homelab">here</a>.
+<a id="redirect-a" href="https://gitlab.com/homelab-Tygo-van-den-Hurk">here</a>.
 <!--#include virtual="/assets/html/redirection-pages/tail.html"-->
