@@ -1,7 +1,10 @@
-# [`redirects.tygo.van.den.hurk.dev`](https://redirects.tygo.van.den.hurk.dev/)
-> This repository holds the source code for all the links that I need a redirect too. So if there is ever a link that needs to be spread around multiple websites, this is where I will put them. 
+> This repository holds the source code for all the links that I need a redirect too. So if there is ever a link that needs to be spread around multiple websites, this is where I will put them.
 
-Every page added to this, Cannot be removed. Only the link may be altered to redirect some where else. This is to make sure that all links go somewhere. If I ever need to add a link for a project, and I forget about that project, then the link must always work. Which is where this redirect comes in. The redirect goes to github-pages instance for example. 
+> [!WARNING]  
+> Every page added to this, shouldn't be removed for backwards compatibility.
+
+# [`redirects.tygo.van.den.hurk.dev`](https://redirects.tygo.van.den.hurk.dev/)
+This site is to prevent my links from being non-DRY. Now, if I want a link to my personal GitHub, all I need to do is add the link: `https://redirects.tygo.van.den.hurk.dev/github/personal` and now if that link is broken for example, only this link will need to be changed. I've already had to use this once. But since I know that I always use this repository I know that all the links I've ever used are still functional as they point to here.
 
 ## How easy is it to set something like this up yourself?
 Really easy. If you have `git`, and `docker` installed, then you can clone and compose in as little as 5 minutes. It could be a really useful thing to have.
