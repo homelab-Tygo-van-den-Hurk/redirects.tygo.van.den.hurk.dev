@@ -57,8 +57,10 @@ body {
 
                 a {
                     color: var(--accent-color);
+                    width: fit-content;
                     background-color: transparent;
                     border-color: transparent;
+                    margin-inline: auto;
                     
                     &:hover {
                         background-color: transparent;
