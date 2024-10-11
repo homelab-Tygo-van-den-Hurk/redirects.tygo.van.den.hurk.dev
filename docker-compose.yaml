@@ -1,0 +1,23 @@
+# A web-server hosting redirect links. The idea is to have only one place to change the link.
+---
+
+services:
+
+  server: # Apache HTTPD Alphine
+    image: httpd@sha256:66c49302c02430619abb84240a438bcfc083015661009fcaaeaac931450f62cd
+    container_name: redirects-webserver
+    hostname: redirects-webserver
+    restart: unless-stopped
+    networks:
+      - default
+      - proxymesh
+    volumes:
+      - ./html/:/usr/local/apache2/htdocs/
+      - ./config/httpd.conf:/usr/local/apache2/conf/httpd.conf
+    tty: true
+
+networks:
+  default:
+    name: redirects
+  proxymesh:
+    external: true
